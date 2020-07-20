@@ -1,0 +1,20 @@
+.show{
+    background-color: chartreuse;
+    right: 50px;  
+    width: 10px;
+    height: 10px;
+    
+    
+}
+input[type=submit] {
+    background-color: coral;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    border-radius: 8px;
+  }
+  #form {
+      margin-top: 200px;
+      margin-left: 100px;
+      border: 1 px solid black;
+      height: ;
+  }
