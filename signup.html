@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="signup.js">
+</head>
+<body>
+    <form id="form">
+        <label>Name: <br>
+            <input type="text" placeholder="Name" id="Name" value="" required>
+        </label>
+    </br>
+        <label>LastName: <br>
+            <input type="text" placeholder="LastName" id="lastName" value="" required>
+            </label>
+        </br>
+            <label>Email: <br>
+              <input type="email" placeholder="Email" id="Email" value="" required>
+            </label>
+        </br>
+        <label>Gender: <br>
+            <input type="radio"  name="Gender">Male
+            <input type="radio"  name="Gender">Female
+            <input type="radio"  name="Gender">Other
+        </label>
+    </br>
+        <label>Birthdate: <br>
+            <input type="date" name="date" id="date" min="2000" max="2020">
+        </label>
+    </br>
+        <br>
+        <label for="username"> Username: <br>
+            <input type="text" id="usernameInput" value=""> <div id="usernameSucess" class=""></div>
+        </label>
+        <br>
+          <!-- password -->
+       
+        <label for="Pwd" >password (8 characters minimum):</label>
+        <input type="password" id="Pwd" name="pwd" minlength="8" required>
+        </label>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+           
+
+        <label for="securityquestion">Choose a Security Question: <br>
+            <select id="securityquestion" >
+                <option value="favToy">What is your favorite toy? </option>
+                <option value="favTeacher">What is the name of your favorite teacher? </option>
+                <option value="Siblings">What is the name of one of your siblings? </option>
+                <option value="bestFriend">What is the name of your best friend</option>
+            </select>
+        </label>
+        
+        <input type='submit' value="Sign Up">
+    </form>
+</body>
+<script src="signup.js"></script>
