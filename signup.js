@@ -2,7 +2,7 @@ const userInput = document.getElementById("usernameInput");
 let securityQ = document.getElementById("securityquestion");
 let formToSubmit = document.getElementById("form");
 
-const successUser = document.getElementById('UsernameSuccess');
+const successUser = document.getElementById('usernameSuccess');
 userInput.addEventListener('keyup',userCheck);
 var username = ''
 function userCheck(event){
