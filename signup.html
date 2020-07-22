@@ -4,43 +4,32 @@
     <link rel="stylesheet" href="signup.js">
 </head>
 <body>
+    <h1>Sign Up</h1>
     <form id="form">
-        <label>Name: <br>
-            <input type="text" placeholder="Name" id="Name" value="" required>
+        <label>
+            <input type="text" placeholder="First Name" id="Name" value="" required>
         </label>
-    </br>
-        <label>LastName: <br>
-            <input type="text" placeholder="LastName" id="lastName" value="" required>
-            </label>
-        </br>
+                <label>
+                <input type="text" placeholder="Last Name" id="Name" value="" required>
+                 </label>
+            <div>
             <label>Email: <br>
               <input type="email" placeholder="Email" id="Email" value="" required>
             </label>
         </br>
-        <label>Gender: <br>
-            <input type="radio"  name="Gender">Male
-            <input type="radio"  name="Gender">Female
-            <input type="radio"  name="Gender">Other
-        </label>
-    </br>
-        <label>Birthdate: <br>
-            <input type="date" name="date" id="date" min="2000" max="2020">
-        </label>
-    </br>
-        <br>
+    </div>
         <label for="username"> Username: <br>
-            <input type="text" id="usernameInput" value=""> <div id="usernameSucess" class=""></div>
+            <input type="text" placeholder="Username" id="usernameInput" value="" required> <div id="usernameSucess" class="div red"></div>
         </label>
         <br>
-          <!-- password -->
-       
-        <label for="Pwd" >password (8 characters minimum):</label>
-        <input type="password" id="Pwd" name="pwd" minlength="8" required>
+        <!-- password -->
+        <label for="Pwd" >Password (8 characters minimum):</label><br>
+        <input type="password" placeholder="Password" id="passwordInput" name="pwd" minlength="8" required><div id="passwordSucess" class="div red"></div>
         </label>
-
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
+        <label for="psw-repeat"></label><b>
+        <input type="password" placeholder="Confirm" id ="conPassInput" name="psw-repeat" required><div id="passwordConfirmed" class="div red"></div>
+        </br>
+    </br>
            
 
         <label for="securityquestion">Choose a Security Question: <br>
@@ -51,8 +40,10 @@
                 <option value="bestFriend">What is the name of your best friend</option>
             </select>
         </label>
-        
-        <input type='submit' value="Sign Up">
+        <br>
+        <button onclick="document.location='index.html'">submit</button>
+    </br>
+       <!--<input type='submit' value="Sign Up">--> 
     </form>
 </body>
 <script src="signup.js"></script>

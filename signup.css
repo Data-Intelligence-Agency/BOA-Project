@@ -1,6 +1,15 @@
-.show {
-    background-color: chartreuse;
+.div {
     right: 50px;  
     width: 10px;
+    height: 10px;
+}
+.green {
+    background-color: chartreuse;
+}
+.red {
+    background-color: red;
+}
+
+#h1{
     height: 10px;
 }
