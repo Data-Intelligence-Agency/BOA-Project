@@ -13,3 +13,37 @@
 #h1{
     height: 10px;
 }
+.missing {
+    height: 250px;
+    width: 400px;
+    background-color: skyblue;
+    padding: 5px;
+    padding-left: 30px;
+
+}
+body {
+    height: 100%;
+    width: 100%;
+}
+#form.invalid #inputBox {
+   content: '';
+   position: absolute;
+   right: 2px;
+   top: 12px;
+   width: 24px;
+   height: 24px;
+   background: url(invalid.png);
+   background-size: cover;
+   z-index: 1000;
+}
+#form.valid #inputBox {
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: url(valid.png);
+    background-size: cover;
+    z-index: 1000;
+ }
