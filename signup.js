@@ -24,16 +24,18 @@ const requiredCharacters = document.getElementById("reqChar");
 const noRepeat = document.getElementById("noRepeat");
 const specialChar = document.getElementById("specialChar");
 const passwordCheck = document.getElementById("passwordSucess");
-passInput.addEventListener('keyup', passCheck);
-var password = ''
-function passCheck(event) {
+
+//passInput.addEventListener('keyup', passCheck);
+
+function passCheck() {
+    const password = passInput.value;
+    console.log(password)
+    // console.log(event);
     passwordCheck.style.display = "block";
-    password = password + event.key
-    console.log('thisIsThePassword', password);
+    // console.log('thisIsThePassword', password);
     if (password.length >= 8 && password.length <= 20) {
         charactersCount.classList.add("green");
         charactersCount.classList.remove("red");
-        //alert("pass");
         return true;
     }
     else if (password.length >= 20) {
@@ -41,18 +43,26 @@ function passCheck(event) {
         charactersCount.classList.remove("green");
         return false;
     }
-    var passw = /^[A - Za - z]\w{ 7, 14}$/;
-    if (password.match(passw)) {
-        requiredCharacters.classList.add("green");
-        requiredCharacters.classList.remove("red");
-        return true;
+    const charregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/;
+    let m;
+    if ((m = charregex.exec(password)) !== null) {
+        m.forEach((match, groupIndex) => {
+            requiredCharacters.classList.add("green");
+            requiredCharacters.classList.remove("red");
+        });
     }
-    var charSpecial = /^(?=.*\d)(?!.*\s).$/;
-    if (password.match(charSpecial)) {
-        requiredCharacters.classList.add("green");
-        requiredCharacters.classList.remove("red");
-        return true;
+    const charSpecial = /^(?=.*[\W+]).*$/;
+    let n;
+    if ((n = charSpecial.exec(password)) !== null) {
+        n.forEach((match, groupIndex) => {
+            requiredCharacters.classList.add("green");
+            requiredCharacters.classList.remove("red");
+        });
     }
+    else if (requiredCharacters.classList.contains("red") || charactersCount.classList.contains("red") || requiredCharacters.classList.contains("red")) {
+        return false;
+    }
+
 }
 //Password confirmed
 const confirmedPass = document.getElementById('passwordConfirmed');
@@ -79,7 +89,8 @@ function conPassCheck(event) {
 
     });
 
-    //close
+    //close modal 
+    $('.model-close').cli
 
 
 

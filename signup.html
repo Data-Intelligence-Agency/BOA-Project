@@ -30,7 +30,8 @@
         <br>
         <!-- password -->
         <label for="Pwd">Password (8 characters minimum):</label><br>
-        <input type="password" placeholder="Password" id="passwordInput" name="pwd" minlength="8" required>
+        <input type="password" placeholder="Password" id="passwordInput" name="pwd" onkeyup="passCheck()" minlength="8"
+            required>
         <div id="passwordSucess" class="missing red" style="display: none;">
             <h3>Your Password must: </h5>
                 <div id="character" class="div red"></div> Contain 8 to 20 characters
@@ -69,10 +70,11 @@
                     </label>
 
                     <div class="srows">
-                        div class="label"> security answer:</div> <br>
-                    <button onclick="document.location='index.html'">submit</button>
-                    </br>
-                    <!--<input type='submit' value="Sign Up">-->
+                        <div class="label"> security answer:
+                        </div> <br>
+                        <button onclick="document.location='index.html'">submit</button>
+                        </br>
+                        <!--<input type='submit' value="Sign Up">-->
     </form>
 </body>
 <script src="signup.js"></script>
