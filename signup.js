@@ -6,32 +6,33 @@ let securityQ = document.getElementById("securityquestion");
 let formToSubmit = document.getElementById("form");
 var login = []
 
-// count characters in username
-//const successUser = document.getElementById('usernameSucess');
-//userInput.addEventListener('keyup', userCheck);
-//var username = ''
-//function userCheck(event) {
-   // username = username + event.key
-    //console.log('thisIsTheUsername', username);
-    //if (username.length >= 8) {
-        //successUser.classList.add("green");
-       // successUser.classList.remove("red");
- //   }
-//}
-function validation(){
-    var user = document.getElementById("usernameInput");
-         if(user.value.length <= 20 && user.value.length >= 3){
-         }
-         else{
-             alert("Username has to be between 3-20 characters.")
-          }
-         //duplication data list
-         var user = document.getElementById("usernameInput");
-         if(user.value == list.value){
-         }
-         else{
-             alert("Username already exists.")
-          }
+var usernameStorage = {
+    'albiona': 'dfdf'
+}
+
+
+//count characters in username
+//get id of a div
+const successUser = document.getElementById('usernameSucess');
+userInput.addEventListener('keyup', userCheck);
+
+var username = ''
+function userCheck(event) {
+    username = userInput.value
+    console.log('thisIsTheUsername', username);
+    //check for username length
+    successUser.classList.add("redtxt");
+    if (username.length >= 8) {
+        successUser.classList.add("redtxt");
+        successUser.value = "This username is available.";
+        successUser.classList.remove("redtxt");
+    }
+    //check if username already in usernameStorage
+    if (usernameStorage.hasOwnProperty(username)) {
+        var usernameSucess = document.getElementById('usernameSucess');
+        document.getElementById("usernameSucess").textContent = "";
+
+    }
 }
 //count characters in password
 const charactersCount = document.getElementById("character");
@@ -41,21 +42,25 @@ const specialChar = document.getElementById("specialChar");
 const passwordCheck = document.getElementById("passwordSucess");
 
 //passInput.addEventListener('keyup', passCheck);
-
+let PassFlag = false;
 function passCheck() {
     const password = passInput.value;
     console.log(password)
     passwordCheck.style.display = "block";
+    let flag1 = false;
+    let flag2 = false;
+    let flag3 = true;
+    let flag4 = false;
     //Character Count
     if (password.length >= 8 && password.length <= 20) {
         charactersCount.classList.add("green");
         charactersCount.classList.remove("red");
-        return true;
+        flag1 = true;
     }
     else if (password.length >= 20) {
         charactersCount.classList.add("red");
         charactersCount.classList.remove("green");
-        return false;
+        flag1 = false;
     }
     //Upper, Lowercased letters, & numbers
     const charregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/;
@@ -64,6 +69,7 @@ function passCheck() {
         m.forEach((match, groupIndex) => {
             requiredCharacters.classList.add("green");
             requiredCharacters.classList.remove("red");
+            flag2 = true;
         });
     }
     //No repeating characters 3 times or more
@@ -73,6 +79,7 @@ function passCheck() {
         o.forEach((match, groupIndex) => {
             noRepeat.classList.remove("green");
             noRepeat.classList.add("red");
+            flag3=false;
         });
     }
     //No Spaces and Special Characters
@@ -82,26 +89,42 @@ function passCheck() {
         n.forEach((match, groupIndex) => {
             specialChar.classList.add("green");
             specialChar.classList.remove("red");
+            flag4 = true;
         });
     }
-    const noSpace = /\s/; 
+    const noSpace = /\s/;
     let p;
     if ((p = noSpace.exec(password)) !== null) {
         p.forEach((match, groupIndex) => {
             specialChar.classList.remove("green");
             specialChar.classList.add("red");
+            flag4 = false;
         });
+    }
+    if(flag1 == true && flag2 == true && flag3 == true && flag4 == true) {
+        passwordCheck.style.display = "none";
+        PassFlag = true;
+        console.log(PassFlag);
     }
 }
 //Password confirmed
+let conPassflag = false;
 const confirmedPass = document.getElementById('passwordConfirmed');
 conPassInput.addEventListener('keyup', conPassCheck);
 function conPassCheck(event) {
     console.log(conPassInput.value);
     if (passInput.value == conPassInput.value) {
-        confirmedPass.classList.add("green");
-        confirmedPass.classList.remove("red");
-    }  
+        confirmedPass.classList.add("greentxt");
+        confirmedPass.value = "The Password has been confirmed";
+        confirmedPass.classList.remove("redtxt");
+        conPassflag = true;
+    }
+    else  {
+        confirmedPass.classList.remove("greentxt");
+        confirmedPass.value = "The Password has not been confirmed";
+        confirmedPass.classList.add("redtxt");
+        conPassflag = false
+    }
 }
 /*
     //  dOcument.getElementById('answer');
@@ -126,36 +149,26 @@ function conPassCheck(event) {
 
        
     // });
+    */
 
+const firstNameInput = document.getElementById("firstName");
+const lastNameInput = document.getElementById("lastName");
 //Event listener for submition 
 formToSubmit.addEventListener("submit", scan);
 
 function scan(event) {
-    console.log(username.value);
-    console.log(securityQ.value);
+    console.log(userInput.value);
+    console.log(passInput.value);
+    register();
 }
 
 //function to register user
-/*function register() {
+function register() {
     var login = [];
-    login.push({Firstname: firstname.value, userInput: userInput.value, pass: password.value});
+    login.push({ FirstName: firstNameInput.value, lastName: lastNameInput.value, email: emailInput.value, username: userInput.value, password: passInput.value });
     event.preventDefault();
 }
-function CheckPassword(inputtxt) 
-{ 
-var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-if(inputtxt.value.match(decimal)) 
-{ 
-alert('Correct, try another...')
-return true;
-}
-else
-{ 
-alert('Wrong...!')
-return false;
-}
-}
-*/
+
 emailInput.addEventListener('keyup', validation);
 function validation() {
     var form = document.getElementById('form');

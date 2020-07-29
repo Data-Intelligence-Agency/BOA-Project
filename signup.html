@@ -6,24 +6,25 @@
 </head>
 
 <body>
-    <h1>Sign Up</h1>
+
     <form id="form" action="#">
+        <h1>Sign Up</h1>
         <label>
-            <input type="text" placeholder="First Name" id="firstName" value=""/>
+            <input type="text" placeholder="First Name" id="firstName" value="" />
         </label>
         <label>
-            <input type="text" placeholder="Last Name" id="lastName" value=""/>
+            <input type="text" placeholder="Last Name" id="lastName" value="" />
         </label>
         <div class="inputBox">
             <label> <br>
-                <input type="text" placeholder="Enter Email" id="email" value=""/>
+                <input type="text" placeholder="Enter Email" id="email" value="" />
                 <span id="text"></span>
             </label>
             </br>
         </div>
         <label for="username"><br>
             <input type="text" placeholder="Username" id="usernameInput" value="" required>
-            <div id="usernameSucess" class="div red"></div>
+            <text id="usernameSucess" class="div redtxt">This username is not available.</text>
         </label>
         <br>
 
@@ -36,7 +37,7 @@
         </label>
         <label for=" psw-repeat"></label><b>
             <input type="password" placeholder="Confirm" id="conPassInput" name="psw-repeat" required>
-            <div id="passwordConfirmed" class="div red"></div>
+            <text id="passwordConfirmed" class="div redtxt">The Password has not been confirmed.</text>
             </br>
             <div id="passwordSucess" class="missing red" style="display: none;">
                 <h3>Your Password must: </h5>
@@ -45,10 +46,13 @@
                     <div id="reqChar" class=" div red"></div> Have at least 1 uppercase character, 1 lowercase and 1
                     number
                     <br>
-                    <div id="noRepeat" class="div green"></div> Not repeat the same number or letter more than 3 times in a
+                    <div id="noRepeat" class="div green"></div> Not repeat the same number or letter more than 3
+                    times
+                    in a
                     row
                     <br>
-                    <div id="specialChar" class=" div red"></div> Not include spaces, and contain only the folloing special
+                    <div id="specialChar" class=" div red"></div> Not include spaces, and contain only the folloing
+                    special
                     characters: @ # * ( ) + { } / ? ~ ;, . - _
             </div>
             <!-- security question  -->
@@ -60,20 +64,24 @@
                     <label for="securityquestion">Choose a Security Question: <br>
                         <select id="securityquestion" class="dropdown">
                             <option value="favToy" class="dropdown"></option>>What is your favorite toy? </option>
-                            <option value="favTeacher" class="dropdown"></option>>What is the name of your favorite teacher? </option>
-                            <option value="Siblings"class="dropdown"></option>>What is the name of one of your siblings? </option>
-                            <option value="bestFriend" class="dropdown"></option>>What is the name of your best friend</option>
+                            <option value="favTeacher" class="dropdown"></option>>What is the name of your favorite
+                            teacher? </option>
+                            <option value="Siblings" class="dropdown"></option>>What is the name of one of your
+                            siblings? </option>
+                            <option value="bestFriend" class="dropdown"></option>>What is the name of your best
+                            friend
+                            </option>
                         </select>
                     </label>
 
                     <div class="srows">
                         <div class="label"> security answer:
-                      <input type="text"  id="answer" name="answer">
+                            <input type="text" id="answer" name="answer">
                         </div> <br>
                         <button onclick="document.location='index.html'">submit</button>
                         </br>
-                        <input type='submit' id="Sign Up input"  value="Sign Up" required>
-                        
+                        <input type='submit' id="Sign Up input" value="Sign Up" required>
+
     </form>
 </body>
 <script src="signup.js"></script>
