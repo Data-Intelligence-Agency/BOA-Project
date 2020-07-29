@@ -47,3 +47,30 @@ body {
     background-size: cover;
     z-index: 1000;
  }
+ input{
+    border: none;
+    border-bottom: 4px solid #8842d5;  
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+}
+form {
+    margin-left: 200px;
+    position: relative;
+}
+
+input[type=submit]{
+    border: none;
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    color:  #8842d5;
+    font-weight: bold;
+} 
+label {
+    font-size: 20px;
+    color:  black;
+}
+br {
+    height: 10px;;
+}
