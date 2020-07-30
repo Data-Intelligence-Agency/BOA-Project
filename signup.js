@@ -104,7 +104,7 @@ function passCheck() {
     if(flag1 == true && flag2 == true && flag3 == true && flag4 == true) {
         passwordCheck.style.display = "none";
         PassFlag = true;
-        console.log(PassFlag);
+        console.log("Password Flag: ", PassFlag);
     }
 }
 //Password confirmed
@@ -123,8 +123,9 @@ function conPassCheck(event) {
         confirmedPass.classList.remove("greentxt");
         confirmedPass.value = "The Password has not been confirmed";
         confirmedPass.classList.add("redtxt");
-        conPassflag = false
+        conPassflag = false;
     }
+    console.log("Comfirmed Password Flag: ", conPassflag );
 }
 /*
     //  dOcument.getElementById('answer');
