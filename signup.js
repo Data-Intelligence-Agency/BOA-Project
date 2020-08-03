@@ -1,21 +1,100 @@
+//Constants/Variables
 const userInput = document.getElementById("usernameInput");
+const successUser = document.getElementById('usernameSucess');
 const passInput = document.getElementById("passwordInput");
+const charactersCount = document.getElementById("character");
+const requiredCharacters = document.getElementById("reqChar");
+const noRepeat = document.getElementById("noRepeat");
+const specialChar = document.getElementById("specialChar");
+const passwordCheck = document.getElementById("passwordSucess");
 const conPassInput = document.getElementById("conPassInput");
+const confirmedPass = document.getElementById('passwordConfirmed');
 const emailInput = document.getElementById('email');
 const securityQ = document.getElementById("securityquestion");
 let formToSubmit = document.getElementById("form");
-var login = []
+const lastNameInput = document.getElementById("lastName");
+const firstNameInput = document.getElementById("firstName");
+const approveName = document.getElementById("approveName");
 
+//flags
+let emailFlag = false;
+let userFlag = false;
+let PassFlag = false;
+let conPassflag = false;
+let FirstNameFlag = false;
+let LastNameFlag = false;
+
+
+//Storage
+var login = []
 var usernameStorage = {
     'albiona': 'dfdf'
 }
 
+//First and Last Name
+firstNameInput.addEventListener("keyup", first_last);
+lastNameInput.addEventListener("keyup", first_last);
+function first_last() {
+    approveName.style.display = "block"; 
+    const regex_FL = /^[a-zA-Z]+$/;
+    let f;
+    if ((f = regex_FL.exec(firstNameInput)) !== null) {
+        f.forEach((match, groupIndex) => {
+            approveName.classList.add("greentxt");
+            approveName.innerHTML = "Your name has been approved";
+            approveName.classList.remove("redtxt");
+            FirstNameFlag= true;
+        });
+    }
+    let l;
+    if ((l = regex_FL.exec(firstNameInput)) !== null) {
+        l.forEach((match, groupIndex) => {
+            approveName.classList.add("greentxt");
+            approveName.innerHTML = "Your name has been approved";
+            approveName.classList.remove("redtxt");
+            FirstNameFlag= true;
+        });
+    }
+    else {
+        approveName.classList.remove("greentxt");
+        approveName.innerHTML = "Your name hasn't been approved";
+        approveName.classList.add("redtxt");
+    }
+    if (FirstNameFlag==true && LastNameFlag == true) {
+        approveName.style.display = "block"; 
+    }
+}
 
-//count characters in username
-//get id of a div
-const successUser = document.getElementById('usernameSucess');
+
+//Function for email
+emailInput.addEventListener('keyup', validation);
+function validation() {
+    var form = document.getElementById('form');
+    var email = document.getElementById('email').value;
+    var text = document.getElementById('text');
+    var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    console.log('email', email);
+    console.log('pattern matched', pattern.test(email));
+
+    if (pattern.test(email)) {
+        console.log('pattern matched');
+        form.classList.add('valid');
+        form.classList.remove('invalid');
+        text.innerHTML = "Your email adress is Valid.";
+        text.style.color = "#00ff00";
+        emailFlag = true;
+
+    } else {
+        form.classList.remove('valid');
+        form.classList.add('invalid');
+        text.innerHTML = "Please enter valid Email Address.";
+        text.style.color = "#ff0000";
+        emailFlag = false;
+    }
+}
+
+//Function count characters in username
 userInput.addEventListener('keyup', userCheck);
-let userFlag = false;
 var username = ''
 function userCheck(event) {
     username = userInput.value
@@ -29,6 +108,7 @@ function userCheck(event) {
         successUser.classList.remove("redtxt");
         userFlag = true;
     }
+
     else {
         successUser.classList.add("redtxt");
         successUser.innerHTML = "This username is not available";
@@ -42,15 +122,9 @@ function userCheck(event) {
 
     }
 }
-//count characters in password
-const charactersCount = document.getElementById("character");
-const requiredCharacters = document.getElementById("reqChar");
-const noRepeat = document.getElementById("noRepeat");
-const specialChar = document.getElementById("specialChar");
-const passwordCheck = document.getElementById("passwordSucess");
 
-//passInput.addEventListener('keyup', passCheck);
-let PassFlag = false;
+//Function for Password check 
+passInput.addEventListener('keyup', passCheck);
 function passCheck() {
     const password = passInput.value;
     //console.log(password)
@@ -116,8 +190,6 @@ function passCheck() {
     }
 }
 //Password confirmed
-let conPassflag = false;
-const confirmedPass = document.getElementById('passwordConfirmed');
 conPassInput.addEventListener('keyup', conPassCheck);
 function conPassCheck(event) {
     //console.log(conPassInput.value);
@@ -140,65 +212,15 @@ function conPassCheck(event) {
 }
 
         //  security  answer
-      document.getElementById('answer');
-     const securityAnswer = document.getElementById('answer');
-     if (!testInput(true,"Secret Question Answer (1st entry)",
-            secretQuestionAnswerTF0.value.trim())){ 
-        return true; 
-    }
-    Input.addEventListener(click ,function);
-    //  security question 
-
-    openmodal
-
-    // $('.dropdown-trigger').each(function(){
-    //     $(this).click(function(){
-    //         $function('body').addclass('model-active');
-    //     } 
-            
-        })
-    })
-    
-
+const securityAnswer = document.getElementById('securityAnswer');
+securityAnswer.addEventListener('keyUp'.securityAnswer.value);
+const securityQuestion = document.getElementById('securityquestion');
+securityQuestion.addEventListener('change' , function(){
+    console.log('value for securityquestion',securityquestion.value)
+})
 
     
-const approveName = document.getElementById("approveName");
-const firstNameInput = document.getElementById("firstName");
-firstNameInput.addEventListener("keyup", first_last);
-let FirstNameFlag = false;
-const lastNameInput = document.getElementById("lastName");
-let LastNameFlag = false;
-lastNameInput.addEventListener("keyup", first_last);
-function first_last() {
-    approveName.style.display = "block"; 
-    const regex_FL = /^[a-zA-Z]+$/;
-    let f;
-    if ((f = regex_FL.exec(firstNameInput)) !== null) {
-        f.forEach((match, groupIndex) => {
-            approveName.classList.add("greentxt");
-            approveName.innerHTML = "Your name has been approved";
-            approveName.classList.remove("redtxt");
-            FirstNameFlag= true;
-        });
-    }
-    let l;
-    if ((l = regex_FL.exec(firstNameInput)) !== null) {
-        l.forEach((match, groupIndex) => {
-            approveName.classList.add("greentxt");
-            approveName.innerHTML = "Your name has been approved";
-            approveName.classList.remove("redtxt");
-            FirstNameFlag= true;
-        });
-    }
-    else {
-        approveName.classList.remove("greentxt");
-        approveName.innerHTML = "Your name hasn't been approved";
-        approveName.classList.add("redtxt");
-    }
-    if (FirstNameFlag==true && LastNameFlag == true) {
-        approveName.style.display = "block"; 
-    }
-}
+
 //Event listener for submition 
 formToSubmit.addEventListener("submit", scan);
 
@@ -226,32 +248,11 @@ function register() {
     loginPage();
     //event.preventDefault();
 }
+//function to direct to login page
 function loginPage() {
     window.open("document.location='index.html'", "_blank");
 }
-let emailFlag = false;
-emailInput.addEventListener('keyup', validation);
-function validation() {
-    var form = document.getElementById('form');
-    var email = document.getElementById('email').value;
-    var text = document.getElementById('text');
-    var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    console.log('email', email);
-    console.log('pattern matched', pattern.test(email));
-
-    if (pattern.test(email)) {
-        console.log('pattern matched');
-        form.classList.add('valid');
-        form.classList.remove('invalid');
-        text.innerHTML = "Your email adress is Valid.";
-        text.style.color = "#00ff00";
-        emailFlag = true;
-
-    } else {
-        form.classList.remove('valid');
-        form.classList.add('invalid');
-        text.innerHTML = "Please enter valid Email Address.";
-        text.style.color = "#ff0000";
-        emailFlag = false;
-    }
+document.getElementById("Login").addEventListener("click", loginButton)
+function loginButton() {
+    window.open("document.location='index.html'");
 }

@@ -4,7 +4,6 @@
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="signup.css">
 </head>
-
 <body>
     <p class="title">WELCOME TO THE CHILDREN'S INTELLIGENCE AGENCY</p>
     <form id="form" action="#" class="background">
@@ -34,13 +33,12 @@
         <label for="Pwd"><p>Password (8 characters minimum):</p></label>
         <input type="password" placeholder="Password" id="passwordInput" name="pwd" onkeyup="passCheck()" minlength="8"
             required>
-
         </label>
         <label for=" psw-repeat"></label>
         <input type="password" placeholder="Confirm" id="conPassInput" name="psw-repeat" required>
         <text  style= "display: none;" id="passwordConfirmed" class="redtxt">The Password has not been confirmed.</text>
         <br>
-        <div id="passwordSucess" class="missing red" style="display: none;">
+        <div id="passwordSucess" class="missing" style="display: none;">
             <h3>Your Password must: </h5>             
             <div id="character" class="div red"></div> Contain 8 to 20 characters
             <br>
@@ -62,13 +60,15 @@
                 <option value="Siblings" class="dropdown">What is the name of one of your siblings? </option>
                 <option value="bestFriend" class="dropdown">What is the name of your best friend? </option>
             </select>
-            <p>Security Answer: </p>
+            <p>SecurityAnswer: </p>
             <input type="text" id="answer" name="answer" class="wide">
         </label>
         <br>
         <!--<button onclick="document.location='index.html'">submit</button>-->
          </br> 
-        <input type='submit' id="Sign Up input" value="Sign Up" required>
+        <input type='submit' id="SignUp input" value="Sign Up">
+        <p>Already have an account?
+        <input type='button' id="Login" value="Log In"></p>
     </form>
 </body>
 <script src="signup.js"></script>

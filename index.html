@@ -6,18 +6,27 @@
 </head>
 
 <body>
+   <ul> 
+      <img style = "height: 80px" src="logo_CIA.png"/>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a class="active" href="#home">Home</a></li>
+   </ul>
     <form id="form">
-       <label for="username"> Username: <br>
-           <input type="text" value="" id="username">
+       <label for="username">
+           <input type="text" value="" placeholder= "Username" id="username">
        </label> <p></p>
-       <label for="password"> Password: <br>
-            <input type="password" value="" id="password"> 
+       <label for="password"> 
+            <input type="password" placeholder= "Password" value="" id="password"> 
             <div id="PasswordSuccess" class=""></div>
        </label><p></p>
-        <input type="submit" id="submit">
-       <br><a id = "forgotpassword" href = "">Forgot Password </a>
+        <input type="submit" id="Submit">
+        <p>Forgot Password? <a id = "forgotpassword" href = "">Click Here </a></p>
+        <p>Don't have an account?
+         <input type='button' id="Signup" value="Signup"></p>
+       
     </form>
    <script src="index.js"></script>
 </body>
-
-
+</html>
