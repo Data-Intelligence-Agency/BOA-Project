@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
+    <ul> 
+        <div class="text"><h1 style="color:#204AB4; margin-top: 5px;">CIA</h1></div>
+        <div class = "text"><h5 style="color:white; margin-top: 45px; font-size: large;">Children's Intelligence Agency</h5></div>
+        <img style = "height: 80px" src="logo_CIA.png"/>
+     </ul>
     <p class="title">WELCOME TO THE CHILDREN'S INTELLIGENCE AGENCY</p>
     <form id="form" action="#" class="background">
         <p style="font-size: 40px;">Sign Up</h1></p>
@@ -14,7 +19,7 @@
         <label>
             <input type="text" placeholder="Last Name" id="lastName" value="" >
         </label>
-        <text id="approveName" style="display: none;" class="redtxt">You may only enter capital and Lowercase letters.</text>
+        <text id="approveName" style="display: none;" class="redtxt">Please make sure to enter your first and Last name.</text>
         <div class="inputBox">
             <label> <br>
                 <input type="text" placeholder="Enter Email" id="email" value="" class="wide">
@@ -61,7 +66,8 @@
                 <option value="bestFriend" class="dropdown">What is the name of your best friend? </option>
             </select>
             <p>SecurityAnswer: </p>
-            <input type="text" id="answer" name="answer" class="wide">
+            <input type="text" id="securityAnswer" name="answer" class="wide">
+            <text  style= "display: none;" id="confirmedAnswer" class="redtxt">The answer is too short.</text>
         </label>
         <br>
         <!--<button onclick="document.location='index.html'">submit</button>-->

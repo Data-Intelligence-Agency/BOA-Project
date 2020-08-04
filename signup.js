@@ -10,11 +10,13 @@ const passwordCheck = document.getElementById("passwordSucess");
 const conPassInput = document.getElementById("conPassInput");
 const confirmedPass = document.getElementById('passwordConfirmed');
 const emailInput = document.getElementById('email');
-const securityQ = document.getElementById("securityquestion");
 let formToSubmit = document.getElementById("form");
 const lastNameInput = document.getElementById("lastName");
 const firstNameInput = document.getElementById("firstName");
 const approveName = document.getElementById("approveName");
+const securityQuestion = document.getElementById('securityquestion');
+const securityAnswer = document.getElementById('securityAnswer');
+const conAnswer = document.getElementById("confirmedAnswer");
 
 //flags
 let emailFlag = false;
@@ -23,6 +25,8 @@ let PassFlag = false;
 let conPassflag = false;
 let FirstNameFlag = false;
 let LastNameFlag = false;
+let securityQFlag = false;
+let SecurityAnswerFlag = false;
 
 
 //Storage
@@ -36,32 +40,18 @@ firstNameInput.addEventListener("keyup", first_last);
 lastNameInput.addEventListener("keyup", first_last);
 function first_last() {
     approveName.style.display = "block"; 
-    const regex_FL = /^[a-zA-Z]+$/;
-    let f;
-    if ((f = regex_FL.exec(firstNameInput)) !== null) {
-        f.forEach((match, groupIndex) => {
-            approveName.classList.add("greentxt");
-            approveName.innerHTML = "Your name has been approved";
-            approveName.classList.remove("redtxt");
-            FirstNameFlag= true;
-        });
+    if (firstNameInput.value.length >= 2 && lastNameInput.value.length >=2) {
+        approveName.classList.add("greentxt");
+        approveName.innerHTML = "Your name has been approved";
+        approveName.classList.remove("redtxt");
+        approveName.style.display = "none"; 
+        FirstNameFlag= true;
+        LastNameFlag = true;
     }
-    let l;
-    if ((l = regex_FL.exec(firstNameInput)) !== null) {
-        l.forEach((match, groupIndex) => {
-            approveName.classList.add("greentxt");
-            approveName.innerHTML = "Your name has been approved";
-            approveName.classList.remove("redtxt");
-            FirstNameFlag= true;
-        });
-    }
-    else {
-        approveName.classList.remove("greentxt");
-        approveName.innerHTML = "Your name hasn't been approved";
-        approveName.classList.add("redtxt");
-    }
-    if (FirstNameFlag==true && LastNameFlag == true) {
+    else{
         approveName.style.display = "block"; 
+        FirstNameFlag = false;
+        LastNameFlag = false;
     }
 }
 
@@ -210,14 +200,28 @@ function conPassCheck(event) {
     }
     //console.log("Comfirmed Password Flag: ", conPassflag );
 }
-
-        //  security  answer
-const securityAnswer = document.getElementById('securityAnswer');
-securityAnswer.addEventListener('keyUp'.securityAnswer.value);
-const securityQuestion = document.getElementById('securityquestion');
+//Security Quextion
 securityQuestion.addEventListener('change' , function(){
-    console.log('value for securityquestion',securityquestion.value)
+    console.log('value for securityquestion',securityquestion.value);
+    securityQFlag= true;
+    
 })
+ //  security  answer
+securityAnswer.addEventListener('keyup', answer);
+function answer() {
+    
+    if (securityAnswer.value.length >= 5) {
+        conAnswer.style.display = "none";
+        SecurityAnswerFlag = true;
+        console.log(securityAnswer.value);
+    }
+    else{
+        conAnswer.style.display = "block";
+        SecurityAnswerFlag = false;
+    }
+
+}
+
 
     
 
@@ -230,9 +234,12 @@ console.log("Email ", emailFlag);
 console.log("Username ", userFlag);
 console.log("Password ", PassFlag);
 console.log("Confrimed Password ", conPassflag);
+console.log("Security Question",securityQFlag);
+console.log("Security Answer", SecurityAnswerFlag);
 let SubmitFlag = false;
 function scan(event) {
-    if (FirstNameFlag==true && LastNameFlag==true && emailFlag==true && userFlag==true && PassFlag == true && conPassflag == true) {
+    if (FirstNameFlag==true && LastNameFlag==true && emailFlag==true && userFlag==true && PassFlag == true && conPassflag == true && 
+        securityQFlag == true && SecurityAnswerFlag == true) {
         SubmitFlag = true;
         register();
     }
@@ -244,7 +251,7 @@ function scan(event) {
 //function to register user
 function register() {
     var login = [];
-    login.push({ FirstName: firstNameInput.value, lastName: lastNameInput.value, email: emailInput.value, username: userInput.value, password: passInput.value, });
+    login.push({ FirstName: firstNameInput.value, lastName: lastNameInput.value, email: emailInput.value, username: userInput.value, password: passInput.value, securityQuestion: securityQuestion.value, securityAnswer: securityAnswer.value });
     loginPage();
     //event.preventDefault();
 }
