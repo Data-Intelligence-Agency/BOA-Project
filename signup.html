@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <ul> 
+        <div class="text"><h1 style="color:#204AB4; margin-top: 5px;">CIA</h1></div>
+        <div class = "text"><h5 style="color:white; margin-top: 45px; font-size: large;">Children's Intelligence Agency</h5></div>
+        <img style = "height: 80px" src="logo_CIA.png"/>
+     </ul>
+    <p class="title">WELCOME TO THE CHILDREN'S INTELLIGENCE AGENCY</p>
+    <form id="form" action="#" class="background">
+        <p style="font-size: 40px;">Sign Up</h1></p>
+        <label>
+            <input type="text" placeholder="First Name" id="firstName" value="" >
+        </label>
+        <label>
+            <input type="text" placeholder="Last Name" id="lastName" value="" >
+        </label>
+        <text id="approveName" style="display: none;" class="redtxt">Please make sure to enter your first and Last name.</text>
+        <div class="inputBox">
+            <label> <br>
+                <input type="text" placeholder="Enter Email" id="email" value="" class="wide">
+                <span id="text"></span>
+            </label>
+            </br>
+        </div>
+        <label for="username" ><br>
+            <input type="text" placeholder="Username" id="usernameInput" value="" class ="wide" required>
+            <text id="usernameSucess" style="display: none;" class="redtxt">This username is not available.</text>
+        </label>
+        <br>
+
+        <br>
+        <!-- password -->
+        <label for="Pwd"><p>Password (8 characters minimum):</p></label>
+        <input type="password" placeholder="Password" id="passwordInput" name="pwd" onkeyup="passCheck()" minlength="8"
+            required>
+        </label>
+        <label for=" psw-repeat"></label>
+        <input type="password" placeholder="Confirm" id="conPassInput" name="psw-repeat" required>
+        <text  style= "display: none;" id="passwordConfirmed" class="redtxt">The Password has not been confirmed.</text>
+        <br>
+        <div id="passwordSucess" class="missing" style="display: none;">
+            <h3>Your Password must: </h5>             
+            <div id="character" class="div red"></div> Contain 8 to 20 characters
+            <br>
+            <div id="reqChar" class=" div red"></div> Have at least 1 uppercase character, 1 lowercase and 1 number
+            <br>
+            <div id="noRepeat" class="div green"></div> Not repeat the same number or letter more than 3 times in a row
+            <br>
+            <div id="specialChar" class=" div red"></div> Not include spaces, and contain only the following special characters: @ # * ( ) + { } / ? ~ ;, . - _
+        </div>
+            <!-- security question  -->
+
+        </br>
+
+        <!--<div class="srows"> -->
+        <label for="securityquestion"><p>Choose a Security Question: </p>
+            <select id="securityquestion" class="dropdown">
+                <option value="favToy" class="dropdown">What is your favorite toy? </option>
+                <option value="favTeacher" class="dropdown"> What is the name of your favorite teacher? </option>
+                <option value="Siblings" class="dropdown">What is the name of one of your siblings? </option>
+                <option value="bestFriend" class="dropdown">What is the name of your best friend? </option>
+            </select>
+            <p>SecurityAnswer: </p>
+            <input type="text" id="securityAnswer" name="answer" class="wide">
+            <text  style= "display: none;" id="confirmedAnswer" class="redtxt">The answer is too short.</text>
+        </label>
+        <br>
+        <!--<button onclick="document.location='index.html'">submit</button>-->
+         </br> 
+        <input type='submit' id="SignUp input" value="Sign Up">
+        <p>Already have an account?
+        <input type='button' id="Login" value="Log In"></p>
+    </form>
+</body>
+<script src="signup.js"></script>
+</html>

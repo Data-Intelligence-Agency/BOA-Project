@@ -1,0 +1,186 @@
+ul{
+    list-style-type: none;
+    width: 100;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+    background-color: #333;
+    top:0;
+    position: relative;
+   /* position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    /*transition: top 0.3s;
+    opacity: 0.1;*/
+  }
+  /*li{
+    float: right;
+    margin-right: 30px;
+  }
+  /*li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+  }*/
+  /*li a:hover{
+    background-color: #111;
+  }*/
+  .text {
+    margin-left: 100px;
+    position: absolute;
+  }
+.div {
+    right: 50px;  
+    width: 10px;
+    height: 10px;
+}
+.red {
+    /* background-color: red;*/
+    width: 10px;
+    height: 10px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/480px-Red_X.svg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.green {
+    /*background-color: chartreuse;*/
+    width: 10px;
+    height: 10px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/e/e4/Green_tick.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.greentxt {
+    color: chartreuse;
+}
+.redtxt {
+    color: red;
+}
+
+#h1{
+    height: 10px;
+}
+.missing {
+    height: 250px;
+    width: 400px;
+    background-color: #DDEDF0;
+    padding: 5px;
+    padding-left: 30px;
+
+}
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pxfuel.com/preview/334/1011/741/people-nature-baby-mystery.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+
+}
+#form.invalid #inputBox {
+   content: '';
+   position: absolute;
+   right: 2px;
+   top: 12px;
+   width: 24px;
+   height: 24px;
+   background: url(invalid.png);
+   background-size: cover;
+   z-index: 1000;
+}
+#form.valid #inputBox {
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: url(valid.png);
+    background-size: cover;
+    z-index: 1000;
+ }
+ input{
+    border: none;
+    border-bottom: 4px solid black;  
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    background-color: #E9E8E8;
+}
+form {
+    margin-left: 150px;
+    position: relative;
+    width: 500px;
+    padding: 50px;
+    border-radius: 5%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+.background {
+    background-color: #CBCBCB ;
+    opacity: 70%;
+}
+
+input[type=submit]{
+    border: none;
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    color:  black;
+    font-weight: bold;
+    background-color: #E9E8E8;
+    border-radius: 5%;
+} 
+input[type=button]{
+    border: none;
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    color:  black;
+    font-weight: bold;
+    background-color: #E9E8E8;
+    border-radius: 5%;
+} 
+label {
+    font-size: 20px;
+    color:  black;
+}
+br {
+    height: 10px;;
+}
+.usernameSucess{
+float: right;
+width: 100%;
+}
+.dropdown {
+    color: black;
+    width: 400px;;
+    padding:5px;
+    font-size: 20px;
+    background-color: #E9E8E8;
+}
+p {
+    font-size: 20px;
+    color:  black;
+    font-weight: bold;
+    margin: 10px;
+}
+.wide {
+    width: 400px;
+}
+.title {
+    font-size: 75px;
+    color:  white;
+    font-weight: bold;
+    margin-top: 100px;
+    position: absolute;
+    margin-left: 800px;
+    width: 500px;
+    text-align: center;
+}
