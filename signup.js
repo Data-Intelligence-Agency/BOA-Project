@@ -268,7 +268,13 @@ function scan(event) {
 //function to register user
 function register() {
     var user = {FirstName: firstNameInput.value, lastName: lastNameInput.value, email: emailInput.value, username: userInput.value, password: passInput.value, securityQuestion: securityQuestion.value, securityAnswer: securityAnswer.value };
-   
+    axios.post('https://dsya-server.herokuapp.com/team3/createuser/', user) 
+        .then(response => {
+            console.log('Response ', response.data)
+        })
+        .catch(error => {
+            console.log("Error from create user", error)
+        })
     console.log("This is the registered user", user);
 }
 //function to direct to login page
