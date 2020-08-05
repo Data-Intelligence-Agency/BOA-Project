@@ -117,7 +117,7 @@ function userCheck(event) {
 passInput.addEventListener('keyup', passCheck);
 function passCheck() {
     const password = passInput.value;
-    //console.log(password)
+    // console.log(password)
     passwordCheck.style.display = "block";
     let flag1 = false;
     let flag2 = false;
@@ -129,7 +129,7 @@ function passCheck() {
         charactersCount.classList.remove("red");
         flag1 = true;
     }
-    else if (password.length >= 20) {
+    else {
         charactersCount.classList.add("red");
         charactersCount.classList.remove("green");
         flag1 = false;
@@ -144,6 +144,11 @@ function passCheck() {
             flag2 = true;
         });
     }
+    else  {
+            requiredCharacters.classList.remove("green");
+            requiredCharacters.classList.add("red");
+            flag2 = true;
+    }
     //No repeating characters 3 times or more
     const repeating = /(.)\1{2,}/;
     let o;
@@ -153,6 +158,11 @@ function passCheck() {
             noRepeat.classList.add("red");
             flag3=false;
         });
+    }
+    else {
+        noRepeat.classList.add("green");
+        noRepeat.classList.remove("red");
+        flag3=true;
     }
     //No Spaces and Special Characters
     const charSpecial = /[@#()+{}\/?~;,*._-]/sg;
@@ -177,6 +187,11 @@ function passCheck() {
         passwordCheck.style.display = "none";
         PassFlag = true;
         //console.log("Password Flag: ", PassFlag);
+    }
+    else {
+
+        passwordCheck.style.display = "block";
+        PassFlag =  false;
     }
 }
 //Password confirmed
@@ -228,32 +243,33 @@ function answer() {
 //Event listener for submition 
 formToSubmit.addEventListener("submit", scan);
 
-console.log("First Name ", FirstNameFlag);
-console.log("Last Name ", LastNameFlag);
-console.log("Email ", emailFlag);
-console.log("Username ", userFlag);
-console.log("Password ", PassFlag);
-console.log("Confrimed Password ", conPassflag);
-console.log("Security Question",securityQFlag);
-console.log("Security Answer", SecurityAnswerFlag);
+
 let SubmitFlag = false;
 function scan(event) {
+    console.log("First Name ", FirstNameFlag);
+    console.log("Last Name ", LastNameFlag);
+    console.log("Email ", emailFlag);
+    console.log("Username ", userFlag);
+    console.log("Password ", PassFlag);
+    console.log("Confrimed Password ", conPassflag);
+    console.log("Security Question",securityQFlag);
+    console.log("Security Answer", SecurityAnswerFlag);
     if (FirstNameFlag==true && LastNameFlag==true && emailFlag==true && userFlag==true && PassFlag == true && conPassflag == true && 
         securityQFlag == true && SecurityAnswerFlag == true) {
         SubmitFlag = true;
         register();
+        alert("It has been submitted")
     }
     else {
         SubmitFlag = false;
-        alert("Sorry, but thisform can not be submitted")
+        alert("Sorry, but this form can not be submitted")
     }
 }
 //function to register user
 function register() {
-    var login = [];
-    login.push({ FirstName: firstNameInput.value, lastName: lastNameInput.value, email: emailInput.value, username: userInput.value, password: passInput.value, securityQuestion: securityQuestion.value, securityAnswer: securityAnswer.value });
-    loginPage();
-    //event.preventDefault();
+    var user = {FirstName: firstNameInput.value, lastName: lastNameInput.value, email: emailInput.value, username: userInput.value, password: passInput.value, securityQuestion: securityQuestion.value, securityAnswer: securityAnswer.value };
+   
+    console.log("This is the registered user", user);
 }
 //function to direct to login page
 function loginPage() {
