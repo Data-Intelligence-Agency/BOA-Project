@@ -18,19 +18,22 @@
    </ul>
    
     <form id="form">
+      <p><text  style= "display: none;" id="login" class="redtxt">The username or password is invalid.</text></p>
        <label for="username">
-           <input type="text" value="" placeholder= "Username" id="username">
+           <input type="text" placeholder= "Username" id="username">
        </label> <p></p>
        <label for="password"> 
-            <input type="password" placeholder= "Password" value="" id="password"> 
+            <input type="password" placeholder= "Password" id="password"> 
             <div id="PasswordSuccess" class=""></div>
-       </label><p></p>
+       </label>
+       
         <input type="submit" id="Submit">
-        <p>Forgot Password? <a id = "forgotpassword" href = "">Click Here </a></p>
+        <p>Forgot Password? <a id = "forgotpassword" href = "http://127.0.0.1:5501/forgotPassword.html">Click Here </a></p>
         <p>Don't have an account?
          <input type='button' id="Signup" value="Signup"></p>
        
     </form>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
    <script src="index.js"></script>
 </body>
 </html>

@@ -93,18 +93,34 @@ function userCheck(event) {
     //check for username length
     //successUser.classList.add("redtxt");
     if (username.length >= 8 && username.length <= 20) {
-        successUser.classList.add("greentxt");
-        successUser.innerHTML = "This username is available";
-        successUser.classList.remove("redtxt");
-        userFlag = true;
+        axios.get(`https://dsya-server.herokuapp.com/team3/checkusername/${username}`)
+        .then(response => {
+            console.log("This is the response for username ", response.data);
+            if (response.data === "not found"){
+                successUser.classList.add("greentxt");
+                successUser.innerHTML = "This username is available";
+                successUser.classList.remove("redtxt");
+                userFlag = true;
+            }
+            else {
+                successUser.classList.add("redtxt");
+                successUser.innerHTML = "This username is not available";
+                successUser.classList.remove("greentxt");
+                userFlag = false;
+            }
+        })
+        .catch(error => {
+            console.log("This is the error for username ", error.body)
+        })
+
     }
 
-    else {
-        successUser.classList.add("redtxt");
-        successUser.innerHTML = "This username is not available";
-        successUser.classList.remove("greentxt");
-        userFlag = false;
-    }
+    // else {
+    //     successUser.classList.add("redtxt");
+    //     successUser.innerHTML = "This username is not available";
+    //     successUser.classList.remove("greentxt");
+    //     userFlag = false;
+    // }
     //check if username already in usernameStorage
     if (usernameStorage.hasOwnProperty(username)) {
         var usernameSucess = document.getElementById('usernameSucess');
@@ -225,7 +241,7 @@ securityQuestion.addEventListener('change' , function(){
 securityAnswer.addEventListener('keyup', answer);
 function answer() {
     
-    if (securityAnswer.value.length >= 5) {
+    if (securityAnswer.value.length >= 2) {
         conAnswer.style.display = "none";
         SecurityAnswerFlag = true;
         console.log(securityAnswer.value);
@@ -246,6 +262,7 @@ formToSubmit.addEventListener("submit", scan);
 
 let SubmitFlag = false;
 function scan(event) {
+    event.preventDefault();
     console.log("First Name ", FirstNameFlag);
     console.log("Last Name ", LastNameFlag);
     console.log("Email ", emailFlag);
@@ -258,7 +275,6 @@ function scan(event) {
         securityQFlag == true && SecurityAnswerFlag == true) {
         SubmitFlag = true;
         register();
-        alert("It has been submitted")
     }
     else {
         SubmitFlag = false;
@@ -267,10 +283,20 @@ function scan(event) {
 }
 //function to register user
 function register() {
-    var user = {FirstName: firstNameInput.value, lastName: lastNameInput.value, email: emailInput.value, username: userInput.value, password: passInput.value, securityQuestion: securityQuestion.value, securityAnswer: securityAnswer.value };
+
+    var user = {FirstName: firstNameInput.value,
+        lastName: lastNameInput.value,
+        email: emailInput.value, 
+        username: userInput.value, 
+        password: passInput.value, 
+        secretquestion: securityQuestion.value, 
+        secretanswer: securityAnswer.value };
+        console.log('This is the user', user)
     axios.post('https://dsya-server.herokuapp.com/team3/createuser/', user) 
         .then(response => {
             console.log('Response ', response.data)
+            //window.location.replace('http://127.0.0.1:5501/alert.html');
+
         })
         .catch(error => {
             console.log("Error from create user", error)
@@ -279,9 +305,9 @@ function register() {
 }
 //function to direct to login page
 function loginPage() {
-    window.open("document.location='index.html'", "_blank");
+    window.location.replace('http://127.0.0.1:5501/index.html');
 }
 document.getElementById("Login").addEventListener("click", loginButton)
 function loginButton() {
-    window.open("document.location='index.html'");
+    window.location.replace('http://127.0.0.1:5501/index.html');
 }
