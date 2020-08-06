@@ -14,7 +14,7 @@ form {
     margin-top: 200px;
     margin-bottom: 50px;
     background-color: gray;
-    opacity: 70%;
+    opacity: 80%;
 }
 ul{
   list-style-type: none;
@@ -100,4 +100,7 @@ p {
 .text {
   margin-left: 100px;
   position: absolute;
+}
+.redtxt {
+  color: red;
 }

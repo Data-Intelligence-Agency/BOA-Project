@@ -29,7 +29,7 @@
         </div>
         <label for="username" ><br>
             <input type="text" placeholder="Username" id="usernameInput" value="" class ="wide" required>
-            <text id="usernameSucess" style="display: none;" class="redtxt">This username is not available.</text>
+            <text id="usernameSucess" style="display: none;" class="redtxt"></text>
         </label>
         <br>
 
@@ -60,10 +60,10 @@
         <!--<div class="srows"> -->
         <label for="securityquestion"><p>Choose a Security Question: </p>
             <select id="securityquestion" class="dropdown">
-                <option value="favToy" class="dropdown">What is your favorite toy? </option>
-                <option value="favTeacher" class="dropdown"> What is the name of your favorite teacher? </option>
-                <option value="Siblings" class="dropdown">What is the name of one of your siblings? </option>
-                <option value="bestFriend" class="dropdown">What is the name of your best friend? </option>
+                <option value="What is your favorite toy?" class="dropdown">What is your favorite toy? </option>
+                <option value="What is the name of your favorite teacher?" class="dropdown"> What is the name of your favorite teacher? </option>
+                <option value="What is the name of one of your siblings?" class="dropdown">What is the name of one of your siblings? </option>
+                <option value="What is the name of your best friend?" class="dropdown">What is the name of your best friend? </option>
             </select>
             <p>SecurityAnswer: </p>
             <input type="text" id="securityAnswer" name="answer" class="wide">
@@ -72,10 +72,11 @@
         <br>
         <!--<button onclick="document.location='index.html'">submit</button>-->
          </br> 
-        <input type='submit' id="SignUp input" value="Sign Up">
+        <input type='submit'id="SignUp input" value="Sign Up">
         <p>Already have an account?
         <input type='button' id="Login" value="Log In"></p>
     </form>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script src="signup.js"></script>
 </html>
