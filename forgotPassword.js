@@ -33,6 +33,8 @@ function userCheck(event) {
                 successUser.classList.add("redtxt");
                 successUser.innerHTML = "This username was not found";
                 successUser.classList.remove("greentxt");
+                document.getElementById('displaySecurity').style.display = 'none';
+                document.getElementById('submit').style.display = 'none';
                 userFlag = false;
             }
             else {
@@ -41,6 +43,7 @@ function userCheck(event) {
                 successUser.classList.remove("redtxt");
                 userFlag = true;
                 document.getElementById('displaySecurity').style.display = 'block';
+                document.getElementById('submit').style.display = 'block';
             }
         })
         .catch(error => {
