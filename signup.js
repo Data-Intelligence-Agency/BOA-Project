@@ -17,6 +17,7 @@ const approveName = document.getElementById("approveName");
 const securityQuestion = document.getElementById('securityquestion');
 const securityAnswer = document.getElementById('securityAnswer');
 const conAnswer = document.getElementById("confirmedAnswer");
+const URL = 'http://127.0.0.1:5501/';
 
 //flags
 let emailFlag = false;
@@ -59,7 +60,7 @@ function first_last() {
 //Function for email
 emailInput.addEventListener('keyup', validation);
 function validation() {
-    var form = document.getElementById('form');
+    // var form = document.getElementById('form');
     var email = document.getElementById('email').value;
     var text = document.getElementById('text');
     var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -67,18 +68,40 @@ function validation() {
     console.log('pattern matched', pattern.test(email));
 
     if (pattern.test(email)) {
-        console.log('pattern matched');
-        form.classList.add('valid');
-        form.classList.remove('invalid');
-        text.innerHTML = "Your email adress is Valid.";
-        text.style.color = "#00ff00";
-        emailFlag = true;
+        // console.log('pattern matched');
+        // text.innerHTML = "Your email adress is Valid.";
+        // text.style.color = "#00ff00";
+        // emailFlag = true;
+        axios.get(`https://dsya-server.herokuapp.com/team3/checkemail/${email}`)
+        .then(response => {
+            console.log("This is the response for email ", response.data);
+            if (response.data === "not found"){
+                text.classList.add("greentxt");
+                text.classList.remove("redtxt");
+                text.innerHTML = "This email has been aprroved";
+                // form.classList.add('valid');
+                // form.classList.remove('invalid');
+                emailFlag = true;
+            }
+            else {
+                text.classList.add("redtxt");
+                text.classList.remove("greentxt");
+                text.innerHTML = "This email is already being used";
+                emailFlag = false;
+                // form.classList.remove('valid');
+                // form.classList.add('invalid');
+            }
+        })
+        .catch(error => {
+            console.log("This is the error for email ", error.body)
+        })
 
     } else {
-        form.classList.remove('valid');
-        form.classList.add('invalid');
+        // form.classList.remove('valid');
+        // form.classList.add('invalid');
         text.innerHTML = "Please enter valid Email Address.";
-        text.style.color = "#ff0000";
+        text.classList.add("redtxt");
+        text.classList.remove("greentxt");
         emailFlag = false;
     }
 }
@@ -291,23 +314,26 @@ function register() {
         password: passInput.value, 
         secretquestion: securityQuestion.value, 
         secretanswer: securityAnswer.value };
-        console.log('This is the user', user)
-    axios.post('https://dsya-server.herokuapp.com/team3/createuser/', user) 
+        //console.log('This is the user', user)
+    return axios.post('https://dsya-server.herokuapp.com/team3/createuser/', user) 
         .then(response => {
+            //loginPage();
+            window.location.replace('https://www.google.com');
             console.log('Response ', response.data)
-            //window.location.replace('http://127.0.0.1:5501/alert.html');
+            
 
         })
         .catch(error => {
-            console.log("Error from create user", error)
+            console.error("Error from create user", error.response.data)
         })
-    console.log("This is the registered user", user);
+    
+    //console.log("This is the registered user", user);
 }
 //function to direct to login page
 function loginPage() {
-    window.location.replace('http://127.0.0.1:5501/index.html');
+    window.location.replace(`${URL}/index.html`);
 }
 document.getElementById("Login").addEventListener("click", loginButton)
 function loginButton() {
-    window.location.replace('http://127.0.0.1:5501/index.html');
+    window.location.replace(`${URL}index.html`);
 }

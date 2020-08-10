@@ -13,6 +13,7 @@
     <p class="title">WELCOME TO THE CHILDREN'S INTELLIGENCE AGENCY</p>
     <form id="form" action="#" class="background">
         <p style="font-size: 40px;">Sign Up</h1></p>
+        <!-- name -->
         <label>
             <input type="text" placeholder="First Name" id="firstName" value="" >
         </label>
@@ -20,16 +21,17 @@
             <input type="text" placeholder="Last Name" id="lastName" value="" >
         </label>
         <text id="approveName" style="display: none;" class="redtxt">Please make sure to enter your first and Last name.</text>
+        <!-- email -->
         <div class="inputBox">
             <label> <br>
                 <input type="text" placeholder="Enter Email" id="email" value="" class="wide">
-                <span id="text"></span>
+                <br><span id="text" class="redtxt"></span>
             </label>
             </br>
         </div>
         <label for="username" ><br>
             <input type="text" placeholder="Username" id="usernameInput" value="" class ="wide" required>
-            <text id="usernameSucess" style="display: none;" class="redtxt"></text>
+            <br><text id="usernameSucess" style="display: none;" class="redtxt"></text>
         </label>
         <br>
 
@@ -77,6 +79,6 @@
         <input type='button' id="Login" value="Log In"></p>
     </form>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="signup.js"></script>
 </html>
