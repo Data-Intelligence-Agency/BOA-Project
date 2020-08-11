@@ -11,6 +11,7 @@ const successUser = document.getElementById('usernameSucess');
 const securityAnswer = document.getElementById('securityAnswer');
 const conAnswer = document.getElementById("confirmedAnswer");
 const updatePassword = document.getElementById('updatePassword');
+const URL = 'http://127.0.0.1:5501/';
 let objectID;
 
 //flags
@@ -218,7 +219,7 @@ function updatePasswordfunction() {
         axios.put(`https://dsya-server.herokuapp.com/team3/changepassword/`, {id: objectID, password: passInput.value})
         .then(response => {
             console.log("This is response from password", response.data)
-            window.location.replace('http://127.0.0.1:5501/index.html');
+            window.location.replace(`${URL}/index.html`);
         })
         .catch(error => {
             console.log('This is error from Password', error)

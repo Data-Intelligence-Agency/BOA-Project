@@ -11,8 +11,9 @@ ul{
 .text {
         margin-left: 100px;
         position: absolute;
-        font-family: 'Quicksand', sans-serif;
-        font-family: 'Sora', sans-serif;
+        font-family: 'Barlow', sans-serif;
+         font-family: 'Quicksand', sans-serif;
+         font-family: 'Sora', sans-serif;
   }
 
  
@@ -111,7 +112,7 @@ input[type=submit]{
     border: none;
     height: 40px;
     width: 200px;
-    font-size: 10px;
+    font-size: 20px;
     color:  black;
     font-weight: bold;
     border-radius: 5%;
@@ -120,7 +121,7 @@ input[type=button]{
     border: none;
     height: 40px;
     width: 200px;
-    font-size: 10px;
+    font-size: 20px;
     color:  black;
     font-weight: bold;
     border-radius: 5%;
@@ -144,7 +145,7 @@ width: 100%;
     background-color: #E9E8E8;
 }
 p {
-    font-size: 10px;
+    font-size: 20px;
     color:  black;
     font-weight: bold;
     margin: 10px;
@@ -169,8 +170,22 @@ p {
     margin-left: 45%;
     width: 55%;
     height: 754px;
-    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pikist.com/photos/157/631/child-portrait-the-person-young-autumn-loneliness-way-uncertainty-people.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pikist.com/photos/843/895/boy-kids-autumn-nature-child-felled-trees-season-wood-tree.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: right;
+  }
+  li{
+    float: right;
+    margin-right: 30px;
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+  }
+  li a:hover{
+    background-color: #111;
   }

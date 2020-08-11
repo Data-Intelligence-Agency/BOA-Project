@@ -98,9 +98,9 @@ p {
 .text {
   margin-left: 100px;
   position: absolute;
+  font-family: 'Barlow', sans-serif;
   font-family: 'Quicksand', sans-serif;
-  font-family: 'Sora', sans-serif;
-
+   font-family: 'Sora', sans-serif;
 }
 .redtxt {
   color: red;

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Sign Up Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Sora:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Quicksand:wght@500&family=Sora:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
@@ -11,10 +11,14 @@
         <div class="text"><h1 style="color:#204AB4; margin-top: 5px;">CIA</h1></div>
         <div class = "text"><h5 style="color:white; margin-top: 45px; font-size: large;">Children's Intelligence Agency</h5></div>
         <img style = "height: 80px" src="logo_CIA.png"/>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="active" href="#home">Home</a></li>
      </ul>
     <!-- <p class="title">WELCOME TO THE CHILDREN'S INTELLIGENCE AGENCY</p> -->
     <form id="form" action="#" class="background">
-        <p style="font-size: 40px;">Sign Up</h1></p>
+        <p style="font-size: 40px;">Sign Up</p><p>Welcome! Thanks for joining our agency.</p>
         <!-- name -->
         <label>
             <input type="text" placeholder="First Name" id="firstName" value="" >
@@ -54,14 +58,13 @@
         </div>
          <!-- security question  -->
         <label for="securityquestion"><p>Choose a Security Question: </p>
-            <select id="securityquestion" class="dropdown">
+            <select id="securityquestion" class="dropdown" placeholder = "Choose a Security Question">
                 <option value="What is your favorite toy?" class="dropdown">What is your favorite toy? </option>
                 <option value="What is the name of your favorite teacher?" class="dropdown"> What is the name of your favorite teacher? </option>
                 <option value="What is the name of one of your siblings?" class="dropdown">What is the name of one of your siblings? </option>
                 <option value="What is the name of your best friend?" class="dropdown">What is the name of your best friend? </option>
             </select>
-            <p>SecurityAnswer: </p>
-            <input type="text" id="securityAnswer" name="answer" class="wide">
+            <input type="text" id="securityAnswer" placeholder="Please answer your security question." name="answer" class="wide">
             <text  style= "display: none;" id="confirmedAnswer" class="redtxt">The answer is too short.</text>
         </label>
         <input type='submit'id="SignUp input" value="Sign Up">
