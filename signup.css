@@ -111,7 +111,7 @@ input[type=submit]{
     border: none;
     height: 40px;
     width: 200px;
-    font-size: 20px;
+    font-size: 10px;
     color:  black;
     font-weight: bold;
     border-radius: 5%;
@@ -120,7 +120,7 @@ input[type=button]{
     border: none;
     height: 40px;
     width: 200px;
-    font-size: 20px;
+    font-size: 10px;
     color:  black;
     font-weight: bold;
     border-radius: 5%;
