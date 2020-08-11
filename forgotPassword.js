@@ -79,7 +79,7 @@ function answer() {
         axios.put(`https://dsya-server.herokuapp.com/team3/checkanswer/`, {username: userInput.value, answer: securityAnswer.value})
         .then(response=> {
             console.log("This is the reponse for answer", response.data);
-            let objectID = response.data;
+            objectID = response.data;
             if (response.data === "Incorrect Answer"){
                 conAnswer.style.display = "block";
                 conAnswer.innerHTML = "Incorrect Answer";
@@ -218,7 +218,7 @@ function updatePasswordfunction() {
         axios.put(`https://dsya-server.herokuapp.com/team3/changepassword/`, {id: objectID, password: passInput.value})
         .then(response => {
             console.log("This is response from password", response.data)
-            //window.location.replace('http://127.0.0.1:5501/index.html');
+            window.location.replace('http://127.0.0.1:5501/index.html');
         })
         .catch(error => {
             console.log('This is error from Password', error)
