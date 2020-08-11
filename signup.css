@@ -7,33 +7,17 @@ ul{
     background-color: #333;
     top:0;
     position: relative;
-   /* position: fixed;
-    top: 0;
-    width: 100%;
-    display: block;
-    /*transition: top 0.3s;
-    opacity: 0.1;*/
+}
+.text {
+        margin-left: 100px;
+        position: absolute;
+        font-family: 'Quicksand', sans-serif;
+        font-family: 'Sora', sans-serif;
   }
-  /*li{
-    float: right;
-    margin-right: 30px;
-  }
-  /*li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    text-decoration: none;
-  }*/
-  /*li a:hover{
-    background-color: #111;
-  }*/
-  .text {
-    margin-left: 100px;
-    position: absolute;
-  }
+
+ 
 .div {
-    right: 50px;  
+    right: 50px;    
     width: 10px;
     height: 10px;
 }
@@ -72,24 +56,14 @@ ul{
 
 }
 body {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        font-family: 'Montserrat', Arial, Verdana, sans-serif!important;
-        font-size: 16px;
-        background-color:rgb(168, 200, 243)!important;
-
-    /*position: relative;
+    position: relative;
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pxfuel.com/preview/334/1011/741/people-nature-baby-mystery.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;*/
-
-
+    font-family: 'Montserrat', Arial, Verdana, sans-serif!important;
+    font-size: 16px;
+    background-color:white;
 }
 #form.invalid #inputBox {
    content: '';
@@ -117,23 +91,20 @@ body {
     border: none;
     border-bottom: 4px solid black;  
     height: 40px;
-    width: 200px;
+    width: 400px;
     font-size: 20px;
-    background-color: #E9E8E8;
+    margin-top: 20px;
 }
 form {
-    margin-left: 150px;
-    position: relative;
-    width: 500px;
-    padding: 50px;
+    position: absolute;
+    margin-right: 60%;
+    width: 40%;
+    height: 100%;
+    /* padding:120px; */
     border-radius: 5%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    
-}
-.background {
-    background-color: #CBCBCB ;
-    opacity: 80%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
 }
 
 input[type=submit]{
@@ -143,9 +114,8 @@ input[type=submit]{
     font-size: 20px;
     color:  black;
     font-weight: bold;
-    background-color: #E9E8E8;
     border-radius: 5%;
-} 
+}
 input[type=button]{
     border: none;
     height: 40px;
@@ -153,9 +123,8 @@ input[type=button]{
     font-size: 20px;
     color:  black;
     font-weight: bold;
-    background-color: #E9E8E8;
     border-radius: 5%;
-} 
+}
 label {
     font-size: 20px;
     color:  black;
@@ -175,10 +144,11 @@ width: 100%;
     background-color: #E9E8E8;
 }
 p {
-    font-size: 20px;
+    font-size: 10px;
     color:  black;
     font-weight: bold;
     margin: 10px;
+  
 }
 .wide {
     width: 400px;
@@ -193,3 +163,14 @@ p {
     width: 500px;
     text-align: center;
 }
+.backgroundimage {
+    position: fixed;
+    margin-top: 0px;
+    margin-left: 45%;
+    width: 55%;
+    height: 754px;
+    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pikist.com/photos/157/631/child-portrait-the-person-young-autumn-loneliness-way-uncertainty-people.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
