@@ -2,11 +2,12 @@
 <html>
 <head>
    <title> BOA Project Front</title>
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Sora:wght@300&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-   
+   <div class = "backgroundimage"></div>
    <ul> 
       <img style = "height: 80px" src="logo_CIA.png"/>
       <div class="text"><h1 style="color:#204AB4; margin-top: 5px;">CIA</h1></div>
@@ -17,7 +18,9 @@
       <li><a class="active" href="#home">Home</a></li>
    </ul>
    
+   
     <form id="form">
+       <p style="font-size: 40px;"> Log in</p><p>Welcome back, my fellow agent</p>
       <p><text  style= "display: none;" id="login" class="redtxt">The username or password is invalid.</text></p>
        <label for="username">
            <input type="text" placeholder= "Username" id="username">
@@ -28,9 +31,11 @@
        </label>
        
         <input type="submit" id="Submit">
-        <p>Forgot Password? <a id = "forgotpassword" href = "http://127.0.0.1:5501/forgotPassword.html">Click Here </a></p>
+        
         <p>Don't have an account?
          <input type='button' id="Signup" value="Signup"></p>
+         <p  style="margin-top: 20px; font-size: 18px;">Forgot Password?
+         <a id = "forgotpassword" href = "http://127.0.0.1:5501/forgotPassword.html">Click Here </a></p>
        
     </form>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>

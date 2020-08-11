@@ -80,11 +80,25 @@ function answer() {
         .then(response=> {
             console.log("This is the reponse for answer", response.data);
             let objectID = response.data;
-            document.getElementById('pwd').style.display = 'block';
-            document.getElementById('displaySecurity').style.display = 'none';
+            if (response.data === "Incorrect Answer"){
+                conAnswer.style.display = "block";
+                conAnswer.innerHTML = "Incorrect Answer";
+                document.getElementById('pwd').style.display = 'none';
+                document.getElementById('displaySecurity').style.display = 'block';
+
+            }
+            else {
+                document.getElementById('pwd').style.display = 'block';
+                conAnswer.style.display = "none";
+                document.getElementById('displaySecurity').style.display = 'none';
+            }
         })
         .catch(error =>{
-            console.log('This is the error for answer', error)
+            console.log('This is the error for answer', error);
+            conAnswer.style.display = "block";
+            conAnswer.innerHTML = "Incorrect Answer";
+            document.getElementById('pwd').style.display = 'none';
+            document.getElementById('displaySecurity').style.display = 'block';
         })
     }
     else{
@@ -204,7 +218,7 @@ function updatePasswordfunction() {
         axios.put(`https://dsya-server.herokuapp.com/team3/changepassword/`, {id: objectID, password: passInput.value})
         .then(response => {
             console.log("This is response from password", response.data)
-            window.location.replace('http://127.0.0.1:5501/index.html');
+            //window.location.replace('http://127.0.0.1:5501/index.html');
         })
         .catch(error => {
             console.log('This is error from Password', error)
