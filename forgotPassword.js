@@ -10,6 +10,8 @@ const userInput = document.getElementById("usernameInput");
 const successUser = document.getElementById('usernameSucess');
 const securityAnswer = document.getElementById('securityAnswer');
 const conAnswer = document.getElementById("confirmedAnswer");
+const updatePassword = document.getElementById('updatePassword');
+let objectID;
 
 //flags
 let PassFlag = false;
@@ -17,6 +19,8 @@ let conPassflag = false;
 let userFlag = false;
 
 
+
+//Usename Check
 document.getElementById('buttonMe').addEventListener('click', userCheck);
 var username = '';
 function userCheck(event) {
@@ -34,7 +38,7 @@ function userCheck(event) {
                 successUser.innerHTML = "This username was not found";
                 successUser.classList.remove("greentxt");
                 document.getElementById('displaySecurity').style.display = 'none';
-                document.getElementById('submit').style.display = 'none';
+                //document.getElementById('submit').style.display = 'none';
                 userFlag = false;
             }
             else {
@@ -43,7 +47,14 @@ function userCheck(event) {
                 successUser.classList.remove("redtxt");
                 userFlag = true;
                 document.getElementById('displaySecurity').style.display = 'block';
-                document.getElementById('submit').style.display = 'block';
+                document.getElementById('enterUsername').style.display = 'none';
+                axios.get(`https://dsya-server.herokuapp.com/team3/secretquestion/${username}`)
+                .then(response => {
+                    document.getElementById('security').innerHTML = response.data;
+                })
+                .catch(error => {
+                    console.log('This is the error for Security Q', error)
+                })
             }
         })
         .catch(error => {
@@ -53,14 +64,28 @@ function userCheck(event) {
     }
 }
 
+
+// /team3/secretquestion/username
+// '/team3/checkanswer/' {username: username, secret answer: answer}
+// '/team3/changepassword/' send body{ id: id received on previous request, password: “new password”}
+//securityQuestion
 document.getElementById('submit').addEventListener('click', answer);
 function answer() {
     
     if (securityAnswer.value.length >= 2) {
-        conAnswer.style.display = "none";
-        SecurityAnswerFlag = true;
-        //console.log(securityAnswer.value);
-        document.getElementById('pwd').style.display = 'block';
+        // conAnswer.style.display = "none";
+        // SecurityAnswerFlag = true;
+        // //console.log(securityAnswer.value);
+        axios.put(`https://dsya-server.herokuapp.com/team3/checkanswer/`, {username: userInput.value, answer: securityAnswer.value})
+        .then(response=> {
+            console.log("This is the reponse for answer", response.data);
+            let objectID = response.data;
+            document.getElementById('pwd').style.display = 'block';
+            document.getElementById('displaySecurity').style.display = 'none';
+        })
+        .catch(error =>{
+            console.log('This is the error for answer', error)
+        })
     }
     else{
         conAnswer.style.display = "block";
@@ -171,57 +196,20 @@ function conPassCheck(event) {
     }
     //console.log("Comfirmed Password Flag: ", conPassflag );
 }
-formToSubmit.addEventListener("submit", scan);
 
-
-let SubmitFlag = false;
-function scan(event) {
-    event.preventDefault();
-    console.log("First Name ", FirstNameFlag);
-    console.log("Last Name ", LastNameFlag);
-    console.log("Email ", emailFlag);
-    console.log("Username ", userFlag);
-    console.log("Password ", PassFlag);
-    console.log("Confrimed Password ", conPassflag);
-    console.log("Security Question",securityQFlag);
-    console.log("Security Answer", SecurityAnswerFlag);
-    if (FirstNameFlag==true && LastNameFlag==true && emailFlag==true && userFlag==true && PassFlag == true && conPassflag == true && 
-        securityQFlag == true && SecurityAnswerFlag == true) {
-        SubmitFlag = true;
-        register();
-    }
-    else {
-        SubmitFlag = false;
-        alert("Sorry, but this form can not be submitted")
-    }
-}
-//function to register user
-function register() {
-
-    var user = {FirstName: firstNameInput.value,
-        lastName: lastNameInput.value,
-        email: emailInput.value, 
-        username: userInput.value, 
-        password: passInput.value, 
-        secretquestion: securityQuestion.value, 
-        secretanswer: securityAnswer.value };
-        console.log('This is the user', user)
-    axios.post('https://dsya-server.herokuapp.com/team3/createuser/', user) 
+updatePassword.addEventListener('click', updatePasswordfunction)
+function updatePasswordfunction() {
+    console.log('This is updatePasswordfuction')
+    if (PassFlag == true && conPassflag == true ){
+        axios.put(`https://dsya-server.herokuapp.com/team3/changepassword/`, {id: objectID, password: passInput.value})
         .then(response => {
-            console.log('Response ', response.data)
-            //window.location.replace('http://127.0.0.1:5501/alert.html');
-
+            console.log("This is response from password", response.data)
+            window.location.replace('http://127.0.0.1:5501/index.html');
         })
         .catch(error => {
-            console.log("Error from create user", error)
+            console.log('This is error from Password', error)
         })
-    console.log("This is the registered user", user);
-}
-//function to direct to login page
-function loginPage() {
-    window.location.replace('http://127.0.0.1:5501/index.html');
-}
-document.getElementById("Login").addEventListener("click", loginButton)
-function loginButton() {
-    window.location.replace('http://127.0.0.1:5501/index.html');
+    }
+
+
 }
