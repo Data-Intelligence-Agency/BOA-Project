@@ -317,8 +317,7 @@ function register() {
         //console.log('This is the user', user)
     return axios.post('https://dsya-server.herokuapp.com/team3/createuser/', user) 
         .then(response => {
-            //loginPage();
-            window.location.replace('https://www.google.com');
+            loginPage();
             console.log('Response ', response.data)
             
 

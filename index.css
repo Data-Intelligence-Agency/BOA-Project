@@ -44,10 +44,16 @@ li a:hover{
   background-color: #111;
 }
 body {
-    height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://cdn.pixabay.com/photo/2020/04/22/00/03/children-5075037__340.jpg");
-    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Montserrat', Arial, Verdana, sans-serif!important;
+    font-size: 16px;
+    background-color:rgb(168, 200, 243)!important;
+    /*background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://cdn.pixabay.com/photo/2020/04/22/00/03/children-5075037__340.jpg");*/
+    /*background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     /*background-position: bottom;*/

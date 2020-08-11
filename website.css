@@ -1,6 +1,20 @@
-body{
-    background-color: rgb(197, 217, 255);
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', Arial, Verdana, sans-serif!important;
+    font-size: 16px;
+    background-color:rgb(168, 200, 243)!important;
 }
+.hero {
+    background-size:cover;
+    height:60%;
+    position:relative;
+    background-attachment:scroll;
+}
+
 ul{
     list-style-type: none;
     margin: 0;
@@ -50,9 +64,33 @@ ul{
 }
 .abs-centered {
     position:absolute;
-    top:50%;
+    top:20%;
     left:50%;
     transform: translate(-50%,-50%);
     margin:0 auto;
     text-align: center;
+}
+h2{
+    font-family: 'Montserrat', Arial, Verdana, sans-serif!important;
+    font-size: 1em;
+    padding: 0em;
+    font-weight: 100;
+    line-height: 1.2em;
+    margin-top: 10em;
+}
+h3{
+    font-family: 'Montserrat', Arial, Verdana, sans-serif!important;
+    font-size: 1em;
+    padding: 0em;
+    line-height:1.4em;
+    text-transform: none;
+    font-weight: 200;
+    line-height: 1.2em;
+    margin-top: 10em;
+}
+.container-txt {
+    max-width: 700px;
+}
+@media (min-width: 768px) {
+
 }
