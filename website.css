@@ -9,7 +9,7 @@ body {
     background-color:white;
     background-image: url('https://p0.pikist.com/photos/1004/458/child-puzzles-montage-graphing-children-baby-pieces-kid-picture-riddle.jpg');
     background-repeat: no-repeat;
-    /* background-position: 50% 50%; */
+     /*background-position: 50% 50%;*/
     background-size: cover;
 }
 ul{
@@ -53,9 +53,11 @@ ul{
   .text { 
     margin-left: 100px;
     position: absolute;
+    font-family: 'Barlow', sans-serif;
     font-family: 'Quicksand', sans-serif;
     font-family: 'Sora', sans-serif;
   }
+  
   .hero {
     background-size:cover;
     height:60%;
@@ -117,12 +119,3 @@ h3{
 @media (min-width: 768px) {
 
 }
-.bg-blue {
-  background-color:rgba(3,24,51,1);
-}
-.spacing-section {
-  padding:120px 0;
-}
-/*.container-txt{
-  max-width: 700px;
-}*/

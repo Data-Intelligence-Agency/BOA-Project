@@ -1,6 +1,7 @@
 var usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById('password');
 var formToSubmit = document.getElementById("form");
+const URL = 'http://127.0.0.1:5501/';
 
 // username function
 var username = document.getElementById("username").value;
@@ -21,7 +22,7 @@ function run(event) {
     })
     .then(response => {
       console.log("This is the response", response);
-      window.location.replace('http://127.0.0.1:5501/alert.html');
+      window.location.replace(`${URL}/website.html`);
     })
     .catch(error =>{
         console.log("This is the error", error);
@@ -30,7 +31,7 @@ function run(event) {
 }
 document.getElementById("Signup").addEventListener("click", signupButton)
 function signupButton() {
-    window.location.replace('http://127.0.0.1:5501/signup.html');
+    window.location.replace(`${URL}/signup.html`);
 }
 
 // //Password 
