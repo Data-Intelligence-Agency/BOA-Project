@@ -45,7 +45,7 @@ ul{
     font-size: 20px;
     margin-top: 10px;
     margin-left:100px;
-    color: chartreuse;
+    color: rgba(21, 207, 46, 0.87);
 }
 .redtxt {
     text-align: left;
@@ -117,7 +117,7 @@ form {
     height: 750px;
     /* padding:120px; */
     border-radius: 5%;
-    padding-top: 50px;
+    padding-top: 130px;
     padding-bottom: 50px;
     text-align: center;
 }
@@ -184,7 +184,7 @@ p {
     margin-left: 45%;
     width: 55%;
     height: 754px;
-    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pikist.com/photos/843/895/boy-kids-autumn-nature-child-felled-trees-season-wood-tree.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pikist.com/photos/421/962/different-nationalities-children-human-globe-worldwide-figures-wood-game-characters-holzfigur.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
