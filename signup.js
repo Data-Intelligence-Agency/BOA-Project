@@ -17,7 +17,7 @@ const approveName = document.getElementById("approveName");
 const securityQuestion = document.getElementById('securityquestion');
 const securityAnswer = document.getElementById('securityAnswer');
 const conAnswer = document.getElementById("confirmedAnswer");
-const URL = 'http://127.0.0.1:5501/';
+const URL = 'https://data-intelligence-agency.github.io/BOA-Project/';
 
 //flags
 let emailFlag = false;

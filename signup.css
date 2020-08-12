@@ -187,7 +187,7 @@ p {
     background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pikist.com/photos/421/962/different-nationalities-children-human-globe-worldwide-figures-wood-game-characters-holzfigur.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
+    background-position: center;
   }
   li{
     float: right;
