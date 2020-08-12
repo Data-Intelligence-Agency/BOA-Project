@@ -1,7 +1,7 @@
 var usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById('password');
 var formToSubmit = document.getElementById("form");
-const URL = 'http://127.0.0.1:5501/';
+const URL = 'https://data-intelligence-agency.github.io/BOA-Project/';
 
 // username function
 var username = document.getElementById("username").value;
