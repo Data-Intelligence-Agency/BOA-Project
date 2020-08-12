@@ -315,7 +315,8 @@ function scan(event) {
     }
     else {
         SubmitFlag = false;
-        alert("Sorry, but this form can not be submitted")
+        document.getElementById('cantLogin').style.display = 'block';
+        //alert("Sorry, but this form can not be submitted")
     }
 }
 //function to register user

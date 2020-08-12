@@ -7,12 +7,10 @@
 </head>
 <body>
     <div class = "backgroundimage"></div>
-    <ul> 
+    <ul style="position: fixed;height: 80px;"> 
           <div class="text"><h1 style="color:#204AB4; margin-top: 5px;">CIA</h1></div>
           <div class = "text"><h5 style="color:white; margin-top: 45px; font-size: large;">Children's Intelligence Agency</h5></div>
-         <div class="logo">
-          <img src="logo_CIA.png"/>
-          </div>
+          <img style = "height: 80px" src="logo_CIA.png"/>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#about">About</a></li>
@@ -21,6 +19,8 @@
     <!-- <p class="title">WELCOME TO THE CHILDREN'S INTELLIGENCE AGENCY</p> -->
     <form id="form" action="#" class="background">
         <p style="font-size: 40px;">Sign Up</p><p>Welcome! Thanks for joining our agency.</p>
+        <p><text  style= "display: none;" id="cantLogin" class="redtxt">Please enter the correct information.</text></p>
+       <label for="username">
         <!-- name -->
         <label>
             <input type="text" placeholder="First Name" id="firstName" value="" >
