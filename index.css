@@ -28,6 +28,11 @@ ul{
   display: block;
   transition: top 0.3s;
   opacity: 0.9;
+  display: block;
+  z-index: 1000;
+  left:0;
+  margin:0px;
+  font-size:1em;
 }
 li{
   float: right;
@@ -103,6 +108,10 @@ p {
    font-family: 'Sora', sans-serif;
 }
 .redtxt {
+  text-align: left;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left:100px;
   color: red;
 }
 .backgroundimage {
@@ -111,7 +120,7 @@ p {
   margin-left: 45%;
   width: 55%;
   height: 754px;
-  background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://p0.pikist.com/photos/157/631/child-portrait-the-person-young-autumn-loneliness-way-uncertainty-people.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.363), rgba(0, 0, 0, 0.363) ),url("https://live.staticflickr.com/981/42212597082_1f710358a8_b.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;

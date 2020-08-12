@@ -63,6 +63,14 @@ function userCheck(event) {
         })
 
     }
+    else {
+        successUser.classList.add("redtxt");
+        successUser.innerHTML = "This username was not found";
+        successUser.classList.remove("greentxt");
+        document.getElementById('displaySecurity').style.display = 'none';
+        //document.getElementById('submit').style.display = 'none';
+        userFlag = false;
+    }
 }
 
 
@@ -163,22 +171,28 @@ function passCheck() {
     //No Spaces and Special Characters
     const charSpecial = /[@#()+{}\/?~;,*._-]/sg;
     let n;
+    const noSpace = /\s/;
+    let p;
     if ((n = charSpecial.exec(password)) !== null) {
         n.forEach((match, groupIndex) => {
             specialChar.classList.add("green");
             specialChar.classList.remove("red");
             flag4 = true;
         });
+        if ((p = noSpace.exec(password)) !== null) {
+            p.forEach((match, groupIndex) => {
+                specialChar.classList.remove("green");
+                specialChar.classList.add("red");
+                flag4 = false;
+            });
+        }
     }
-    const noSpace = /\s/;
-    let p;
-    if ((p = noSpace.exec(password)) !== null) {
-        p.forEach((match, groupIndex) => {
-            specialChar.classList.remove("green");
-            specialChar.classList.add("red");
-            flag4 = false;
-        });
+    else {
+        specialChar.classList.remove("green");
+        specialChar.classList.add("red");
+        flag4 = false;
     }
+
     if(flag1 == true && flag2 == true && flag3 == true && flag4 == true) {
         passwordCheck.style.display = "none";
         PassFlag = true;
