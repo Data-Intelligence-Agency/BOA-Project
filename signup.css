@@ -16,12 +16,6 @@ ul{
          font-family: 'Sora', sans-serif;
   }
 
- 
-.div {
-    right: 50px;    
-    width: 10px;
-    height: 10px;
-}
 .red {
     /* background-color: red;*/
     width: 10px;
@@ -39,9 +33,17 @@ ul{
     background-repeat: no-repeat;
 }
 .greentxt {
+    text-align: left;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left:100px;
     color: chartreuse;
 }
 .redtxt {
+    text-align: left;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left:100px;
     color: red;
 }
 
@@ -50,10 +52,14 @@ ul{
 }
 .missing {
     height: 250px;
-    width: 400px;
+    width:370px;
     background-color: #DDEDF0;
-    padding: 5px;
+    padding: 10px;
     padding-left: 30px;
+    margin-left:100px;
+    margin-top: 20px;
+    text-align: left;
+    margin-right: 30px;
 
 }
 body {
@@ -66,7 +72,7 @@ body {
     font-size: 16px;
     background-color:white;
 }
-#form.invalid #inputBox {
+/* #form.invalid #inputBox {
    content: '';
    position: absolute;
    right: 2px;
@@ -87,7 +93,7 @@ body {
     background: url(valid.png);
     background-size: cover;
     z-index: 1000;
- }
+ } */
  input{
     border: none;
     border-bottom: 4px solid black;  
@@ -100,7 +106,7 @@ form {
     position: absolute;
     margin-right: 60%;
     width: 40%;
-    height: 100%;
+    height: 750px;
     /* padding:120px; */
     border-radius: 5%;
     padding-top: 50px;

@@ -58,11 +58,11 @@ function first_last() {
 
 
 //Function for email
+emailAprroved = document.getElementById('emailAprroved');
 emailInput.addEventListener('keyup', validation);
 function validation() {
     // var form = document.getElementById('form');
     var email = document.getElementById('email').value;
-    var text = document.getElementById('text');
     var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     console.log('email', email);
     console.log('pattern matched', pattern.test(email));
@@ -76,17 +76,19 @@ function validation() {
         .then(response => {
             console.log("This is the response for email ", response.data);
             if (response.data === "not found"){
-                text.classList.add("greentxt");
-                text.classList.remove("redtxt");
-                text.innerHTML = "This email has been aprroved";
+                emailAprroved.style.display= "block";
+                emailAprroved.classList.add("greentxt");
+                emailAprroved.classList.remove("redtxt");
+                emailAprroved.innerHTML = "This email has been aprroved";
                 // form.classList.add('valid');
                 // form.classList.remove('invalid');
                 emailFlag = true;
             }
             else {
-                text.classList.add("redtxt");
-                text.classList.remove("greentxt");
-                text.innerHTML = "This email is already being used";
+                emailAprroved.classList.add("redtxt");
+                emailAprroved.style.display= "block";
+                emailAprroved.classList.remove("greentxt");
+                emailAprroved.innerHTML = "This email is already being used";
                 emailFlag = false;
                 // form.classList.remove('valid');
                 // form.classList.add('invalid');
@@ -99,9 +101,10 @@ function validation() {
     } else {
         // form.classList.remove('valid');
         // form.classList.add('invalid');
-        text.innerHTML = "Please enter valid Email Address.";
-        text.classList.add("redtxt");
-        text.classList.remove("greentxt");
+        emailAprroved.style.display= "block";
+        emailAprroved.innerHTML = "Please enter valid Email Address.";
+        emailAprroved.classList.add("redtxt");
+        emailAprroved.classList.remove("greentxt");
         emailFlag = false;
     }
 }
@@ -138,12 +141,12 @@ function userCheck(event) {
 
     }
 
-    // else {
-    //     successUser.classList.add("redtxt");
-    //     successUser.innerHTML = "This username is not available";
-    //     successUser.classList.remove("greentxt");
-    //     userFlag = false;
-    // }
+    else {
+        successUser.classList.add("redtxt");
+        successUser.innerHTML = "This username is too short";
+        successUser.classList.remove("greentxt");
+        userFlag = false;
+    }
     //check if username already in usernameStorage
     if (usernameStorage.hasOwnProperty(username)) {
         var usernameSucess = document.getElementById('usernameSucess');
@@ -257,7 +260,12 @@ function conPassCheck(event) {
 //Security Quextion
 securityQuestion.addEventListener('change' , function(){
     console.log('value for securityquestion',securityquestion.value);
-    securityQFlag= true;
+    if (securityAnswer.value.length >= 1) {
+        securityQFlag= true;
+    }
+    else{
+        securityQFlag= false;
+    }
     
 })
  //  security  answer
