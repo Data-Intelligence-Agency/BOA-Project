@@ -345,7 +345,7 @@ function register() {
 }
 //function to direct to login page
 function loginPage() {
-    window.location.replace(`${URL}/index.html`);
+    window.location.replace(`${URL}index.html`);
 }
 document.getElementById("Login").addEventListener("click", loginButton)
 function loginButton() {

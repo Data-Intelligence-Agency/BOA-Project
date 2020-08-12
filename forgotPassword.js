@@ -233,7 +233,7 @@ function updatePasswordfunction() {
         axios.put(`https://dsya-server.herokuapp.com/team3/changepassword/`, {id: objectID, password: passInput.value})
         .then(response => {
             console.log("This is response from password", response.data)
-            window.location.replace(`${URL}/index.html`);
+            window.location.replace(`${URL}index.html`);
         })
         .catch(error => {
             console.log('This is error from Password', error)

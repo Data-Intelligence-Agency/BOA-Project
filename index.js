@@ -29,7 +29,7 @@ function run(event) {
       }
       else {
         document.getElementById('login').style.display = "none";
-        window.location.replace(`${URL}/website.html`);
+        window.location.replace(`${URL}website.html`);
     }
     })
     .catch(error =>{
@@ -39,7 +39,7 @@ function run(event) {
 }
 document.getElementById("Signup").addEventListener("click", signupButton)
 function signupButton() {
-    window.location.replace(`${URL}/signup.html`);
+    window.location.replace(`${URL}signup.html`);
 }
 
 // //Password 
