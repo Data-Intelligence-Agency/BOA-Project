@@ -22,7 +22,15 @@ function run(event) {
     })
     .then(response => {
       console.log("This is the response", response);
-      window.location.replace(`${URL}/website.html`);
+      //window.location.replace(`${URL}/website.html`);
+      if (response.data === "Password Incorrect"){
+        document.getElementById('login').style.display = "block";
+
+      }
+      else {
+        document.getElementById('login').style.display = "none";
+        window.location.replace(`${URL}/website.html`);
+    }
     })
     .catch(error =>{
         console.log("This is the error", error);

@@ -76,10 +76,9 @@ function validation() {
         .then(response => {
             console.log("This is the response for email ", response.data);
             if (response.data === "not found"){
-                emailAprroved.style.display= "block";
                 emailAprroved.classList.add("greentxt");
                 emailAprroved.classList.remove("redtxt");
-                emailAprroved.innerHTML = "This email has been aprroved";
+                emailAprroved.innerHTML = "This email is valid";
                 // form.classList.add('valid');
                 // form.classList.remove('invalid');
                 emailFlag = true;
@@ -143,7 +142,7 @@ function userCheck(event) {
 
     else {
         successUser.classList.add("redtxt");
-        successUser.innerHTML = "This username is too short";
+        successUser.innerHTML = "This username is too short or too long.";
         successUser.classList.remove("greentxt");
         userFlag = false;
     }
@@ -209,22 +208,29 @@ function passCheck() {
     //No Spaces and Special Characters
     const charSpecial = /[@#()+{}\/?~;,*._-]/sg;
     let n;
+    const noSpace = /\s/;
+    let p;
     if ((n = charSpecial.exec(password)) !== null) {
         n.forEach((match, groupIndex) => {
             specialChar.classList.add("green");
             specialChar.classList.remove("red");
             flag4 = true;
         });
+        if ((p = noSpace.exec(password)) !== null) {
+            p.forEach((match, groupIndex) => {
+                specialChar.classList.remove("green");
+                specialChar.classList.add("red");
+                flag4 = false;
+            });
+        }
     }
-    const noSpace = /\s/;
-    let p;
-    if ((p = noSpace.exec(password)) !== null) {
-        p.forEach((match, groupIndex) => {
-            specialChar.classList.remove("green");
-            specialChar.classList.add("red");
-            flag4 = false;
-        });
+    else {
+        specialChar.classList.remove("green");
+        specialChar.classList.add("red");
+        flag4 = false;
     }
+
+
     if(flag1 == true && flag2 == true && flag3 == true && flag4 == true) {
         passwordCheck.style.display = "none";
         PassFlag = true;
