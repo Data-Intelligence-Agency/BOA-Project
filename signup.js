@@ -266,12 +266,12 @@ function conPassCheck(event) {
 //Security Quextion
 securityQuestion.addEventListener('change' , function(){
     console.log('value for securityquestion',securityquestion.value);
-    if (securityAnswer.value.length >= 1) {
+    // if (securityAnswer.value.length >= 1) {
         securityQFlag= true;
-    }
-    else{
-        securityQFlag= false;
-    }
+    // }
+    // else{
+    //     securityQFlag= false;
+    // }
     
 })
  //  security  answer
