@@ -29,7 +29,7 @@ function run(event) {
       }
       else {
         document.getElementById('login').style.display = "none";
-        //window.location.replace(`${URL}website.html`);
+        window.location.replace(`${URL}website.html`);
      }
     })
     .catch(error =>{
